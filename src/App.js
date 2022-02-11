@@ -1,8 +1,11 @@
+import HomeComponent from "./components/HomeComponent";
 
 function App() {
   return (
     <div className="app__container">
-      <div>Ola</div>
+      <div className="main">
+        <HomeComponent />
+      </div>
     </div>
   );
 }
