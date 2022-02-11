@@ -1,4 +1,3 @@
-
 function AddTasksComponent() {
   return (
     <div>
@@ -13,7 +12,7 @@ function AddTasksComponent() {
             </tr>
             <tr>
               <td>
-                <select className="project__title">
+                <select className='project__title'>
                   <option value='0'>ABC</option>
                   <option value='1'>BCA</option>
                   <option value='3'>BAC</option>
@@ -21,15 +20,33 @@ function AddTasksComponent() {
                 </select>
               </td>
               <td>
-                <input type="text" name="" id="task__title" className="tasks__input" placeholder="Task title"/>
+                <input
+                  type='text'
+                  name=''
+                  id='task__title'
+                  className='tasks__input'
+                  placeholder='Task title'
+                />
               </td>
               <td>
-                <textarea id="task__description" className="tasks__input">
-                
-                </textarea>
+                <textarea
+                  id='task__description'
+                  className='tasks__input'
+                ></textarea>
               </td>
               <td>
-                <input type="number" name="" id="task__hours" className="tasks__input" />
+                <input
+                  type='number'
+                  name=''
+                  id='task__hours'
+                  className='tasks__input'
+                />
+              </td>
+            </tr>
+            <tr>
+              <td colSpan='4'>
+                <button> Submit </button>
+                <button> Cancel </button>
               </td>
             </tr>
           </tbody>
