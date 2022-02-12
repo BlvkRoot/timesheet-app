@@ -1,4 +1,16 @@
+import { useState } from 'react';
+
 function AddTasksComponent() {
+  const [project, setProject] = useState('');
+  const [taskTitle, setTitle] = useState('');
+  const [taskDescription, setTaskDescription] = useState('');
+  const [taskHours, setTaskHours] = useState(0);
+
+  const handleSubmitTimesheet = () => {
+    console.log('Clicked', project, taskTitle);
+    console.log('Clicked', taskDescription, taskHours);
+  };
+
   return (
     <div>
       <div>
@@ -12,7 +24,12 @@ function AddTasksComponent() {
             </tr>
             <tr>
               <td>
-                <select className='project__title'>
+                <select
+                  className='project__title'
+                  value={project}
+                  onChange={({ target }) => setProject(target.value)}
+                >
+                  <option value='' disabled >Selecione um projecto</option>
                   <option value='0'>ABC</option>
                   <option value='1'>BCA</option>
                   <option value='3'>BAC</option>
@@ -26,12 +43,14 @@ function AddTasksComponent() {
                   id='task__title'
                   className='tasks__input'
                   placeholder='Task title'
+                  onChange={({target}) => setTitle(target.value)}
                 />
               </td>
               <td>
                 <textarea
                   id='task__description'
                   className='tasks__input'
+                  onChange={({target}) => setTaskDescription(target.value)}
                 ></textarea>
               </td>
               <td>
@@ -40,12 +59,13 @@ function AddTasksComponent() {
                   name=''
                   id='task__hours'
                   className='tasks__input'
+                  onChange={({target}) => setTaskHours(target.value)}
                 />
               </td>
             </tr>
             <tr>
               <td colSpan='4'>
-                <button> Submit </button>
+                <button onClick={handleSubmitTimesheet}> Submit </button>
                 <button> Cancel </button>
               </td>
             </tr>
