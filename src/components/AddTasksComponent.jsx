@@ -1,10 +1,26 @@
 import { useState } from 'react';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  TextField,
+  MenuItem,
+  Button,
+} from '@mui/material';
 
 function AddTasksComponent() {
-  const [project, setProject] = useState('');
+  const [project, setProject] = useState('Selecione um projecto');
   const [taskTitle, setTitle] = useState('');
   const [taskDescription, setTaskDescription] = useState('');
   const [taskHours, setTaskHours] = useState(0);
+
+  // function createData(name, calories, fat, carbs, protein) {
+  //   return { name, calories, fat, carbs, protein };
+  // }
 
   const handleSubmitTimesheet = () => {
     console.log('Clicked', project, taskTitle);
@@ -13,65 +29,79 @@ function AddTasksComponent() {
 
   return (
     <div>
-      <div>
-        <table>
-          <tbody>
-            <tr>
-              <th>Project</th>
-              <th>Title</th>
-              <th>Description</th>
-              <th>Hours</th>
-            </tr>
-            <tr>
-              <td>
-                <select
-                  className='project__title'
+      <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 650 }} aria-label='simple table'>
+          <TableHead>
+            <TableRow>
+              <TableCell>Project</TableCell>
+              <TableCell align='left'>Title</TableCell>
+              <TableCell align='left'>Description</TableCell>
+              <TableCell align='left'>Hours</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            <TableRow
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <TableCell component='th' scope='row'>
+                <TextField
+                  id="outlined-select-currency-native"
+                  required
+                  select
+                  id='outlined-required'
+                  label='Required'
+                  variant="filled"
                   value={project}
+                  defaultValue={project}
                   onChange={({ target }) => setProject(target.value)}
+                  sx={{ 'width': '100%'}}
                 >
-                  <option value='' disabled >Selecione um projecto</option>
-                  <option value='0'>ABC</option>
-                  <option value='1'>BCA</option>
-                  <option value='3'>BAC</option>
-                  <option value='2'>CBA</option>
-                </select>
-              </td>
-              <td>
-                <input
-                  type='text'
-                  name=''
-                  id='task__title'
+                <MenuItem value='Selecione um projecto' disabled>Selecione um projecto</MenuItem>
+                <MenuItem value='Teste A'>Teste A</MenuItem>
+                <MenuItem value='Teste B'>Teste B</MenuItem>
+                <MenuItem value='Teste C'>Teste C</MenuItem>
+              </TextField>  
+              </TableCell>
+              <TableCell align='left'>
+                <TextField
+                  required
+                  id='outlined-required'
+                  label='Required'
                   className='tasks__input'
-                  placeholder='Task title'
-                  onChange={({target}) => setTitle(target.value)}
+                  onChange={({ target }) => setTitle(target.value)}
                 />
-              </td>
-              <td>
-                <textarea
-                  id='task__description'
+              </TableCell>
+              <TableCell align='left'>
+                <TextField
+                  required
+                  multiline
+                  maxRows={4}
+                  id='outlined-required'
+                  label='Required'
                   className='tasks__input'
-                  onChange={({target}) => setTaskDescription(target.value)}
-                ></textarea>
-              </td>
-              <td>
-                <input
+                  onChange={({ target }) => setTaskDescription(target.value)}
+                />
+              </TableCell>
+              <TableCell align='left'>
+                <TextField
+                  required
+                  id='outlined-required'
+                  label='Required'
                   type='number'
-                  name=''
-                  id='task__hours'
                   className='tasks__input'
-                  onChange={({target}) => setTaskHours(target.value)}
+                  onChange={({ target }) => setTaskHours(target.value)}
                 />
-              </td>
-            </tr>
-            <tr>
-              <td colSpan='4'>
-                <button onClick={handleSubmitTimesheet}> Submit </button>
-                <button> Cancel </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+              </TableCell>
+            </TableRow>
+            <TableRow align="center">
+              <TableCell>
+                <Button variant="contained">Submit</Button>
+                <Button variant="contained" color="error">Cancel</Button>
+              </TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </TableContainer>
     </div>
   );
 }
