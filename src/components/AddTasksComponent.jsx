@@ -13,7 +13,7 @@ import {
 } from '@mui/material';
 
 function AddTasksComponent() {
-  const [project, setProject] = useState('Selecione um projecto');
+  const [project, setProject] = useState('Select project');
   const [taskTitle, setTitle] = useState('');
   const [taskDescription, setTaskDescription] = useState('');
   const [taskHours, setTaskHours] = useState(0);
@@ -56,7 +56,7 @@ function AddTasksComponent() {
                   onChange={({ target }) => setProject(target.value)}
                   sx={{ 'width': '100%'}}
                 >
-                <MenuItem value='Selecione um projecto' disabled>Selecione um projecto</MenuItem>
+                <MenuItem value='Select project' disabled>Select project</MenuItem>
                 <MenuItem value='Teste A'>Teste A</MenuItem>
                 <MenuItem value='Teste B'>Teste B</MenuItem>
                 <MenuItem value='Teste C'>Teste C</MenuItem>
