@@ -95,7 +95,7 @@ function AddTasksComponent() {
             </TableRow>
             <TableRow align="center">
               <TableCell>
-                <Button variant="contained">Submit</Button>
+                <Button variant="contained" onClick={handleSubmitTimesheet}>Submit</Button>
                 <Button variant="contained" color="error">Cancel</Button>
               </TableCell>
             </TableRow>
