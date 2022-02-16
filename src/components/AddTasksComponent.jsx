@@ -56,10 +56,9 @@ function AddTasksComponent() {
                   onChange={({ target }) => setProject(target.value)}
                   sx={{ 'width': '100%'}}
                 >
-                <MenuItem value='Select project' disabled>Select project</MenuItem>
-                <MenuItem value='Teste A'>Teste A</MenuItem>
-                <MenuItem value='Teste B'>Teste B</MenuItem>
-                <MenuItem value='Teste C'>Teste C</MenuItem>
+                <MenuItem value='Select project' disabled>Select project or internal</MenuItem>
+                <MenuItem value='Teste A'>Internal</MenuItem>
+                <MenuItem value='Teste B'>Project</MenuItem>
               </TextField>  
               </TableCell>
               <TableCell align='left'>
@@ -93,6 +92,7 @@ function AddTasksComponent() {
                 />
               </TableCell>
             </TableRow>
+            
             <TableRow align="center">
               <TableCell>
                 <Button variant="contained" onClick={handleSubmitTimesheet}>Submit</Button>

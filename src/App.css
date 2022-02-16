@@ -1,0 +1,11 @@
+body, html {
+    height: 0%;
+    background-color: rgb(204, 204, 204);
+    background-image: url('../public/img/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: rgb(204, 0, 255);
+    /* min-height: 100vh; */
+    /* overflow: hidden; */
+}
