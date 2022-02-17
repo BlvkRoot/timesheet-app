@@ -1,0 +1,14 @@
+.nav_links {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.nav_links > a {
+    margin-right: 1rem;
+    padding: .5rem;
+    text-decoration: none;
+    background-color: rgb(165, 165, 165);
+    border-radius: .5rem;
+    font-size: 1.5rem;
+
+}
