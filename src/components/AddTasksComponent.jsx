@@ -69,8 +69,8 @@ function AddTasksComponent() {
                     <MenuItem value='Select project' disabled>
                       Select project or internal
                     </MenuItem>
-                    <MenuItem value='Teste A'>Internal</MenuItem>
-                    <MenuItem value='Teste B'>Project</MenuItem>
+                    <MenuItem value='Internal'>Internal</MenuItem>
+                    <MenuItem value='Project'>Project</MenuItem>
                   </TextField>
                 </TableCell>
                 <TableCell align='left'>

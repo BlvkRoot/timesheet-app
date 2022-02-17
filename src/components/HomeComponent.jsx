@@ -6,11 +6,11 @@ import '../styles/Home.css';
 function HomeComponent() {
   return (
     <div className='home__container'>
-      <nav className='nav_links'>
-        <Link to='/login'>Login</Link>
-        <Link to='/add'>Add Timesheet</Link>
-      </nav>
-      <h1>Daily Timesheet</h1>
+    <h1 className='home__header__title'>Daily Timesheet</h1>
+    <nav className='nav__links'>
+      <Link to='/login'>Login</Link>
+      <Link to='/add'>Add Timesheet</Link>
+    </nav>
 
       <TasksComponent />
     </div>

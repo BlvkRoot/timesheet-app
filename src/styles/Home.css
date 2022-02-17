@@ -1,14 +1,19 @@
-.nav_links {
+.nav__links {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: center;
 }
-.nav_links > a {
+
+.nav__links > a {
     margin-right: 1rem;
     padding: .5rem;
     text-decoration: none;
-    background-color: rgb(165, 165, 165);
+    background-color: rgb(241, 193, 35);
     border-radius: .5rem;
     font-size: 1.5rem;
 
+}
+
+.home__header__title {
+    text-align: center;
 }
