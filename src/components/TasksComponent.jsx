@@ -40,28 +40,36 @@ function TasksComponent() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {data.map((timesheet) => {
-                return (
-                  <Fragment key={timesheet.id}>
-                    <TableRow
-                      sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                    >
-                      <TableCell align='left'>
-                        {timesheet.project_type}
-                      </TableCell>
-                      <TableCell align='left'>
-                        {timesheet.project_title}
-                      </TableCell>
-                      <TableCell align='left'>
-                        {timesheet.project_description}
-                      </TableCell>
-                      <TableCell align='left'>
-                        {timesheet.project_hours}
-                      </TableCell>
-                    </TableRow>
-                  </Fragment>
-                );
-              })}
+              {!data ? (
+                <TableRow>
+                  <TableCell colSpan='4'>No data found</TableCell>
+                </TableRow>
+              ) : (
+                data.map((timesheet) => {
+                  return (
+                    <Fragment key={timesheet.id}>
+                      <TableRow
+                        sx={{
+                          '&:last-child td, &:last-child th': { border: 0 },
+                        }}
+                      >
+                        <TableCell align='left'>
+                          {timesheet.project_type}
+                        </TableCell>
+                        <TableCell align='left'>
+                          {timesheet.project_title}
+                        </TableCell>
+                        <TableCell align='left'>
+                          {timesheet.project_description}
+                        </TableCell>
+                        <TableCell align='left'>
+                          {timesheet.project_hours}
+                        </TableCell>
+                      </TableRow>
+                    </Fragment>
+                  );
+                })
+              )}
             </TableBody>
           </Table>
         </TableContainer>

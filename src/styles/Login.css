@@ -1,0 +1,45 @@
+
+.login__container {
+    height: 60vh;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.login__container > form {
+    height: 60vh;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2rem;
+    background-color: rgba(197, 197, 197, 0.5);
+    box-shadow: 2px 2px 3px rgba(0, 0, 0);
+}
+
+.login__container > form > .input__field {
+    margin-bottom: .5rem;
+}
+
+.login__container > form > .input__field > input, button {
+    height: 2.5rem;
+    width: 20em;
+    border: 1px solid rgba(216, 184, 0, 0.842);
+    border-radius: .5rem;
+    text-align: center;
+}
+
+.input__field > button {
+    font-weight: bold;
+    color: rgb(18, 109, 214);
+    cursor: pointer;
+}
+
+.input__field > button:hover {
+    color: rgb(190, 40, 3);
+    background-color: rgb(95, 95, 94, 0.5);
+}
