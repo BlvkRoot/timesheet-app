@@ -9,7 +9,7 @@ function App() {
       <div className="main">
         <Routes>
           <Route path="/" element={<HomeComponent />} />
-          <Route path="/add" element={<AddTasksComponent />} />
+          <Route path="/timesheets/create" element={<AddTasksComponent />} />
           <Route path="/login" element={<LoginComponent />} />
         </Routes>
       </div>

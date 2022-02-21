@@ -9,7 +9,7 @@ function HomeComponent() {
     <h1 className='home__header__title'>Daily Timesheet</h1>
     <nav className='nav__links'>
       <Link to='/login'>Login</Link>
-      <Link to='/add'>Add Timesheet</Link>
+      <Link to='/timesheets/create'>Add Timesheet</Link>
     </nav>
 
       <TasksComponent />
