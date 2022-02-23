@@ -3,11 +3,13 @@ import { useMutation } from 'react-query';
 import '../styles/Login.css';
 import { useNavigate } from 'react-router-dom';
 import { authenticate } from '../utils/userApiCalls';
+import { useStateValue } from '../contexts/StateProvider';
 
 function LoginComponent() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const [{ user_token, is_authenticated }, dispatch] = useStateValue();
 
   const {
     data: userData,
@@ -20,6 +22,15 @@ function LoginComponent() {
       // Validate if success is true
       if (success) {
         console.log('User token: ', token);
+        dispatch({
+          type: 'SET_USER',
+          token,
+        });
+
+        dispatch({
+          type: 'SET_ISAUTHENTICATED',
+          authenticated: true,
+        });
         navigate('/');
       }
     },
