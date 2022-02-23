@@ -1,7 +1,13 @@
-import axios from 'axios';
+import axiosInstance from './axios';
+
+const baseUrl = 'http://localhost:4141/api/v1/users/';
 
 const authenticate = (loginParams) => {
-  return axios.post('http://localhost:4141/api/v1/users/login', loginParams);
+  return axiosInstance.post(`${baseUrl}login`, loginParams);
 };
 
-export { authenticate }
+const isAuthenticated = () => {
+  return axiosInstance.get(`${baseUrl}isAuthenticated`);
+};
+
+export { authenticate, isAuthenticated };

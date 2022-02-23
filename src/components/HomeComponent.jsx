@@ -3,11 +3,24 @@ import AddTasksComponent from './AddTasksComponent';
 import TasksComponent from './TasksComponent';
 import '../styles/Home.css';
 import { useStateValue } from '../contexts/StateProvider';
+import { useQuery } from 'react-query';
+import { isAuthenticated } from '../utils/userApiCalls.js';
 
 function HomeComponent() {
-  const [{ superUser, user_token, is_authenticated }, dispatch] = useStateValue();
+  const [{ superUser, user_token, is_authenticated }, dispatch] =
+    useStateValue();
 
-  console.log(user_token, is_authenticated);
+  const {} = useQuery('is_authenticated', isAuthenticated, {
+    onSuccess: ({ data }) => {
+      const { success } = data;
+      if (success) {
+        dispatch({
+          type: 'SET_ISAUTHENTICATED',
+          authenticated: success,
+        });
+      }
+    },
+  });
 
   return (
     <div className='home__container'>
