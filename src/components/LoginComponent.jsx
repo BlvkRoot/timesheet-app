@@ -18,13 +18,17 @@ function LoginComponent() {
     isError,
     mutate,
   } = useMutation(authenticate, {
-    onSuccess: async ({ data: { message, success, token } }) => {
+    onSuccess: async ({ data: { userId , message, success, token } }) => {
       // Validate if success is true
       if (success) {
-        console.log('User token: ', token);
         dispatch({
           type: 'SET_USER',
           token,
+        });
+
+        dispatch({
+          type: 'SET_USERID',
+          userId,
         });
 
         dispatch({

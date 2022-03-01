@@ -10,24 +10,19 @@ import {
 import axios from 'axios';
 import React, { Fragment } from 'react';
 import { useQuery } from 'react-query';
+import { useStateValue } from '../contexts/StateProvider';
+import { getTimesheetsByUserId } from '../utils/timesheetApiCalls';
 
 function TasksComponent() {
-  const { data, isFetching } = useQuery('timesheets', async () => {
-    const { data: responseData } = await axios.get(
-      'http://localhost:4848/api/v1/timesheets/show/2e52e11b-2ea2-42d9-8d32-db15630b4298'
-    );
-
-    console.log(responseData);
-
-    return responseData.data;
-  });
+  const [{ user_id }, dispatch] = useStateValue();
+  const { data, isFetching } = useQuery(['timesheets', {userId: user_id}], getTimesheetsByUserId);
 
   return (
     <div className='timesheet__list'>
       <h2>Timesheets list</h2>
 
       {isFetching ? (
-        'Loading..........'
+        'Carregando..........'
       ) : (
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label='simple table'>

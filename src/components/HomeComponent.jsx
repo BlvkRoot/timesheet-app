@@ -12,11 +12,17 @@ function HomeComponent() {
 
   const {} = useQuery('is_authenticated', isAuthenticated, {
     onSuccess: ({ data }) => {
-      const { success } = data;
+      const { success, userId } = data;
+      
       if (success) {
         dispatch({
           type: 'SET_ISAUTHENTICATED',
           authenticated: success,
+        });
+
+        dispatch({
+          type: 'SET_USERID',
+          userId,
         });
       }
     },

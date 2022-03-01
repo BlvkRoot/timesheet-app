@@ -2,7 +2,8 @@ export const initialState = {
   timesheets: [],
   user_token: null,
   is_authenticated: false,
-  superUser: false,
+  super_user: false,
+  user_id: null
 };
 
 const reducer = (state, action) => {
@@ -16,6 +17,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         user_token: action.token,
+      };
+    case 'SET_USERID':
+      return {
+        ...state,
+        user_id: action.userId,
       };
     case 'SET_ISAUTHENTICATED':
       return {
