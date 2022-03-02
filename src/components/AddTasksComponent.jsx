@@ -13,6 +13,7 @@ import {
 } from '@mui/material';
 import { useMutation } from 'react-query';
 import axios from 'axios';
+import '../styles/Timesheets.css';
 
 function AddTasksComponent() {
   const [project, setProject] = useState('Select project');
@@ -28,11 +29,6 @@ function AddTasksComponent() {
       );
     }
   );
-
-  // const handleSubmitTimesheet = () => {
-  //   console.log('Clicked', project, taskTitle);
-  //   console.log('Clicked', taskDescription, taskHours);
-  // };
 
   return (
     <div>
@@ -106,7 +102,8 @@ function AddTasksComponent() {
               </TableRow>
 
               <TableRow align='center'>
-                <TableCell>
+                <TableCell className='tasks__btn' size='medium'></TableCell>
+                <TableCell className='tasks__btn' size='medium'>
                   <Button
                     variant='contained'
                     onClick={() => {
@@ -121,10 +118,13 @@ function AddTasksComponent() {
                   >
                     Submit
                   </Button>
+                </TableCell>
+                <TableCell className='tasks__btn' size='medium'>
                   <Button variant='contained' color='error'>
                     Cancel
                   </Button>
                 </TableCell>
+                <TableCell className='tasks__btn' size='medium'></TableCell>
               </TableRow>
             </TableBody>
           </Table>
