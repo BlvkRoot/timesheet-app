@@ -8,4 +8,11 @@ const getTimesheetsByUserId = async ({ queryKey }) => {
   return data.data;
 };
 
-export { getTimesheetsByUserId };
+const createTimesheet = (newTimesheet) => {
+  return axiosInstance.post(
+    `${baseUrl}create`,
+    newTimesheet
+  );
+}
+
+export { getTimesheetsByUserId, createTimesheet };

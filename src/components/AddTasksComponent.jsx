@@ -12,21 +12,28 @@ import {
   Button,
 } from '@mui/material';
 import { useMutation } from 'react-query';
-import axios from 'axios';
 import '../styles/Timesheets.css';
+import { createTimesheet } from '../utils/timesheetApiCalls';
+import { useNavigate } from 'react-router-dom';
+import { notify } from '../utils/notification';
 
 function AddTasksComponent() {
   const [project, setProject] = useState('Select project');
   const [taskTitle, setTitle] = useState('');
   const [taskDescription, setTaskDescription] = useState('');
   const [taskHours, setTaskHours] = useState(0);
+  const navigate = useNavigate();
 
   const { isLoading, isSuccess, isError, mutate } = useMutation(
-    (newTimesheet) => {
-      return axios.post(
-        'http://localhost:4848/api/v1/timesheets/create',
-        newTimesheet
-      );
+    createTimesheet,
+    {
+      onSuccess: async ({ data: { message, success } }) => {
+        // Validate if success is true
+        if (success) {
+          notify(message);
+          navigate('/');
+        }
+      },
     }
   );
 

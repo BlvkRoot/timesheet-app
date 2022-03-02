@@ -18,7 +18,7 @@ function LoginComponent() {
     isError,
     mutate,
   } = useMutation(authenticate, {
-    onSuccess: async ({ data: { userId , message, success, token } }) => {
+    onSuccess: async ({ data: { userId, message, success, token } }) => {
       // Validate if success is true
       if (success) {
         dispatch({
