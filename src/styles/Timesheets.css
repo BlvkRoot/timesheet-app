@@ -1,5 +1,4 @@
-.tasks__btn {
-    /* display: flex !important; */
-    flex-direction: row;
-    justify-content: space-around !important;
-} 
+
+.table-header, .table-pagination {
+    background-color: rgb(198, 255, 132);
+}

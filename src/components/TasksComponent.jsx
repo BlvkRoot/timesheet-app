@@ -13,6 +13,7 @@ import React, { Fragment } from 'react';
 import { useQuery } from 'react-query';
 import { useStateValue } from '../contexts/StateProvider';
 import { getTimesheetsByUserId } from '../utils/timesheetApiCalls';
+import '../styles/Timesheets.css';
 
 function TasksComponent() {
   const [{ user_id }, dispatch] = useStateValue();
@@ -34,7 +35,7 @@ function TasksComponent() {
 
   return (
     <div className='timesheet__list'>
-      <h2>Timesheets list</h2>
+      <h2>Timesheets</h2>
 
       {isFetching ? (
         'Carregando..........'
@@ -42,7 +43,7 @@ function TasksComponent() {
         <>
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label='simple table'>
-              <TableHead>
+              <TableHead className='table-header'>
                 <TableRow>
                   <TableCell>Project</TableCell>
                   <TableCell align='left'>Title</TableCell>
@@ -87,17 +88,16 @@ function TasksComponent() {
             </Table>
           </TableContainer>
 
-          <TableFooter>
-            <TablePagination
-              rowsPerPageOptions={[5, 10, 15]}
-              component='div'
-              count={data.length}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              onPageChange={handleChangePage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-            />
-          </TableFooter>
+          <TablePagination
+            rowsPerPageOptions={[5, 10, 15]}
+            component='div'
+            count={data.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+            className='table-pagination'
+          />
         </>
       )}
     </div>
